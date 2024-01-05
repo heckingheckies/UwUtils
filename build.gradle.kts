@@ -1,66 +1,54 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-  kotlin("jvm") version "1.9.0"
-  application
+  kotlin("jvm") version "1.9.10"
   id("maven-publish")
-  id("com.github.johnrengelman.shadow") version "7.1.2"
-  id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
-  java
 }
 
 group = "dev.smuggies"
 version = "1.0"
 
-val jarName = "UwUtils"
-val dirPaths: List<String> = listOf("C:/servers/Skypolis/plugins")
-
 repositories {
   mavenCentral()
-  maven("https://oss.sonatype.org/content/groups/public/")
-  maven("https://repo.papermc.io/repository/maven-public/")
+  maven {
+    name = "papermc-repo"
+    url = uri("https://repo.papermc.io/repository/maven-public/")
+  }
+  maven {
+    name = "sonatype"
+    url = uri("https://oss.sonatype.org/content/groups/public/")
+  }
   maven("https://repo.flyte.gg/releases")
-  maven("https://jitpack.io/")
+  maven("https://jitpack.io")
 }
 
 dependencies {
-  implementation(kotlin("stdlib"))
   compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("gg.flyte:twilight:1.0.33")
-  implementation("com.github.Tatsuwuki:uwutils:40c4187b19")
-
-  implementation("com.github.Revxrsal.Lamp:common:3.1.7")
-  implementation("com.github.Revxrsal.Lamp:bukkit:3.1.7")
-  implementation("com.moandjiezana.toml:toml4j:0.7.2")
 }
 
-tasks {
-  shadowJar { relocate("dev.triumphteam.gui", "dev.smuggies.uwutils.UwUtils.gui") }
-}
+val targetJavaVersion = 17
 
-tasks.register("copyToAll") {
-  group = "UwUtils"
-  description = "Builds the UwUtils Jar"
-  dependsOn(tasks.shadowJar)
-  doLast {
-    getTheDir().forEach { dest ->
-      println("Built in: $dest")
-      copy {
-        from(tasks.shadowJar.flatMap { it.archiveFile })
-        into(dest)
-        rename { "$jarName.jar" }
-      }
-    }
+java {
+  val javaVersion = JavaVersion.toVersion(targetJavaVersion)
+  if (JavaVersion.current() < javaVersion) {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
   }
 }
 
-fun getTheDir(): List<File> { return dirPaths.map { File(it) }.filter { it.exists() } }
+tasks.withType<JavaCompile> {
+  if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) {
+    options.release.set(targetJavaVersion)
+  }
+}
 
-tasks.test { useJUnitPlatform() }
-
-tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "17" }
-
-application { mainClass.set("CutePluginKt") }
+tasks.named<ProcessResources>("processResources") {
+  val props = mapOf("version" to version)
+  inputs.properties(props)
+  filteringCharset = "UTF-8"
+  filesMatching("plugin.yml") {
+    expand(props)
+  }
+}
 
 publishing {
   publications {
@@ -73,9 +61,6 @@ publishing {
   }
 }
 
-bukkit {
-  name = "UwUtils"
-  version = "1.0"
-  main = "dev.smuggies.uwutils.minecraft.CutePlugin"
-  apiVersion = "1.20"
+kotlin {
+  jvmToolchain(17)
 }
