@@ -22,6 +22,7 @@ repositories {
 
 dependencies {
   compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+  implementation("com.github.Tatsuwuki:uwutils:77b3e041b3")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("gg.flyte:twilight:1.0.33")
 }
