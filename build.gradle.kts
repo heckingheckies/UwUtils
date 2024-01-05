@@ -21,7 +21,10 @@ repositories {
   maven("https://oss.sonatype.org/content/groups/public/")
   maven("https://repo.papermc.io/repository/maven-public/")
   maven("https://repo.flyte.gg/releases")
-  maven("https://jitpack.io/")
+  maven {
+    url = uri("https://jitpack.io")
+    credentials {username = "jp_mma8ifqoa3q0aqocdg0vc9ej4u"}
+  }
 }
 
 dependencies {
