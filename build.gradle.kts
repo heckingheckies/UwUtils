@@ -4,7 +4,6 @@ plugins {
   kotlin("jvm") version "1.9.0"
   application
   id("maven-publish")
-  id("io.papermc.paperweight.userdev") version "1.5.5"
   id("com.github.johnrengelman.shadow") version "7.1.2"
   id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
   java
@@ -27,9 +26,8 @@ repositories {
 dependencies {
   implementation(kotlin("stdlib"))
   compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-  paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
   implementation("gg.flyte:twilight:1.0.33")
-  implementation("com.github.Tatsuwuki:uwutils:a4686a0b83")
+  implementation("com.github.Tatsuwuki:uwutils:-SNAPSHOT")
 
   implementation("com.github.Revxrsal.Lamp:common:3.1.7")
   implementation("com.github.Revxrsal.Lamp:bukkit:3.1.7")
