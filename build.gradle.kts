@@ -1,11 +1,14 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
   kotlin("jvm") version "1.9.0"
   application
   id("maven-publish")
   id("com.github.johnrengelman.shadow") version "7.1.2"
-  java
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(8))
+  }
 }
 
 group = "dev.smuggies"
@@ -21,7 +24,12 @@ repositories {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+  implementation("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT") {
+    // Explicitly specify the version here to avoid any ambiguity
+    version {
+      strictly("1.20.4-R0.1-SNAPSHOT")
+    }
+  }
   implementation("gg.flyte:twilight:1.0.33")
 
   implementation("com.github.Revxrsal.Lamp:common:3.1.7")
@@ -30,14 +38,18 @@ dependencies {
 }
 
 tasks {
-  shadowJar { relocate("dev.triumphteam.gui", "dev.smuggies.uwutils.UwUtils.gui") }
+  shadowJar {
+    relocate("dev.triumphteam.gui", "dev.smuggies.uwutils.UwUtils.gui")
+  }
 }
 
-tasks.test { useJUnitPlatform() }
+tasks.test {
+  useJUnitPlatform()
+}
 
-tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "17" }
-
-application { mainClass.set("CutePluginKt") }
+application {
+  mainClass.set("CutePluginKt")
+}
 
 publishing {
   publications {
