@@ -14,10 +14,12 @@ abstract class CutePlugin : JavaPlugin() {
 
   open fun onPluginEnable() { Twilight(instance) }
 
+  open fun onPluginDisable() { event<PluginDisableEvent> {} }
+
   final override fun onLoad() {
     plugin = this
     onPluginEnable()
   }
 
-  final override fun onDisable() { event<PluginDisableEvent> {} }
+  final override fun onDisable() { onPluginDisable() }
 }
