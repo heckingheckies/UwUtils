@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
   implementation(kotlin("stdlib"))
-  compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+  compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")
 
   implementation("com.github.Revxrsal.Lamp:common:3.1.7")
   implementation("com.github.Revxrsal.Lamp:bukkit:3.1.7")
