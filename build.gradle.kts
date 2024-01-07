@@ -35,7 +35,7 @@ tasks {
 
 tasks.test { useJUnitPlatform() }
 
-tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "17" }
+tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
 
 application { mainClass.set("CutePluginKt") }
 
