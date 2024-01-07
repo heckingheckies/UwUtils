@@ -1,6 +1,11 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-  kotlin("jvm") version "1.9.10"
+  kotlin("jvm") version "1.9.0"
+  application
   id("maven-publish")
+  id("com.github.johnrengelman.shadow") version "7.1.2"
+  java
 }
 
 group = "dev.smuggies"
@@ -8,48 +13,31 @@ version = "1.0"
 
 repositories {
   mavenCentral()
-  maven {
-    name = "papermc-repo"
-    url = uri("https://repo.papermc.io/repository/maven-public/")
-  }
-  maven {
-    name = "sonatype"
-    url = uri("https://oss.sonatype.org/content/groups/public/")
-  }
+  maven("https://oss.sonatype.org/content/groups/public/")
+  maven("https://repo.papermc.io/repository/maven-public/")
   maven("https://repo.flyte.gg/releases")
-  maven("https://jitpack.io")
+  maven("https://jitpack.io/")
 }
 
 dependencies {
+  implementation(kotlin("stdlib"))
   compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-  implementation("com.github.Tatsuwuki:uwutils:77b3e041b3")
-  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("gg.flyte:twilight:1.0.33")
+
+  implementation("com.github.Revxrsal.Lamp:common:3.1.7")
+  implementation("com.github.Revxrsal.Lamp:bukkit:3.1.7")
+  implementation("com.moandjiezana.toml:toml4j:0.7.2")
 }
 
-val targetJavaVersion = 17
-
-java {
-  val javaVersion = JavaVersion.toVersion(targetJavaVersion)
-  if (JavaVersion.current() < javaVersion) {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
-  }
+tasks {
+  shadowJar { relocate("dev.triumphteam.gui", "dev.smuggies.uwutils.UwUtils.gui") }
 }
 
-tasks.withType<JavaCompile> {
-  if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) {
-    options.release.set(targetJavaVersion)
-  }
-}
+tasks.test { useJUnitPlatform() }
 
-tasks.named<ProcessResources>("processResources") {
-  val props = mapOf("version" to version)
-  inputs.properties(props)
-  filteringCharset = "UTF-8"
-  filesMatching("plugin.yml") {
-    expand(props)
-  }
-}
+tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "17" }
+
+application { mainClass.set("CutePluginKt") }
 
 publishing {
   publications {
@@ -60,8 +48,4 @@ publishing {
       from(components["java"])
     }
   }
-}
-
-kotlin {
-  jvmToolchain(17)
 }
