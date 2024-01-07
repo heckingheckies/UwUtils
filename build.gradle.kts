@@ -5,6 +5,7 @@ plugins {
   application
   id("com.github.johnrengelman.shadow") version "7.1.2"
   java
+  id("maven-publish")
 }
 
 group = "dev.smuggies"
@@ -28,6 +29,17 @@ dependencies {
 }
 
 tasks.test { useJUnitPlatform() }
+
+publishing {
+  publications {
+    create<MavenPublication>("mavenJava") {
+      groupId = "dev.smuggies"
+      artifactId = "UwUtils"
+      version = "1.0"
+      from(components["java"])
+    }
+  }
+}
 
 tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "17" }
 
