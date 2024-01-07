@@ -16,12 +16,14 @@ repositories {
     name = "sonatype"
     url = uri("https://oss.sonatype.org/content/groups/public/")
   }
+  maven("https://repo.flyte.gg/releases")
   maven("https://jitpack.io")
 }
 
 dependencies {
   compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("gg.flyte:twilight:1.0.33")
   implementation("com.github.Tatsuwuki:uwutils:e1b72027f4")
 }
 
