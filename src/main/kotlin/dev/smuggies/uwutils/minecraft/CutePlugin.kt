@@ -3,7 +3,6 @@ package dev.smuggies.uwutils.minecraft
 import org.bukkit.plugin.java.JavaPlugin
 
 lateinit var plugin: CutePlugin
-
 val instance: CutePlugin
   get() = plugin
 
