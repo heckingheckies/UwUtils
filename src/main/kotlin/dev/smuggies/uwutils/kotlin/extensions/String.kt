@@ -1,32 +1,35 @@
 package dev.smuggies.uwutils.kotlin.extensions
 
+/**
+ * A [Map] of all characters and their replacements.
+ */
 val smallTextMap = mapOf(
-  'Q' to 'ꞯ',
-  'W' to 'ᴡ',
-  'E' to 'ᴇ',
-  'R' to 'ʀ',
-  'T' to 'ᴛ',
-  'Y' to 'ʏ',
-  'U' to 'ᴜ',
-  'I' to 'ɪ',
-  'O' to 'ᴏ',
-  'P' to 'ᴘ',
   'A' to 'ᴀ',
-  'S' to 's',
+  'B' to 'ʙ',
+  'C' to 'ᴄ',
   'D' to 'ᴅ',
+  'E' to 'ᴇ',
   'F' to 'ꜰ',
   'G' to 'ɢ',
   'H' to 'ʜ',
+  'I' to 'ɪ',
   'J' to 'ᴊ',
   'K' to 'ᴋ',
   'L' to 'ʟ',
-  'Z' to 'ᴢ',
-  'X' to 'x',
-  'C' to 'ᴄ',
-  'V' to 'ᴠ',
-  'B' to 'ʙ',
+  'M' to 'ᴍ',
   'N' to 'ɴ',
-  'M' to 'ᴍ'
+  'O' to 'ᴏ',
+  'P' to 'ᴘ',
+  'Q' to 'ǫ',
+  'R' to 'ʀ',
+  'S' to 's',
+  'T' to 'ᴛ',
+  'U' to 'ᴜ',
+  'V' to 'ᴠ',
+  'W' to 'ᴡ',
+  'X' to 'x',
+  'Y' to 'ʏ',
+  'Z' to 'ᴢ'
 )
 
 /**

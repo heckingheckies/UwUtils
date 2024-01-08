@@ -1,5 +1,8 @@
 package dev.smuggies.uwutils.minecraft.util.messages
 
+/**
+ * A collection of unicode [Icon]'s to avoid having to constantly paste them.
+ */
 @Suppress("unused")
 object Icon {
 

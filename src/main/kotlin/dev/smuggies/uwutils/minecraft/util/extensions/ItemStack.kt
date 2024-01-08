@@ -5,7 +5,7 @@ import org.bukkit.inventory.meta.Damageable
 
 /**
  * Repairs an [ItemStack] if it is damaged.
- * @return True - if the item was repaired, false if it was not damaged.
+ * @return True if the item was repaired, false if it was not damaged.
  */
 fun ItemStack.repair(): Boolean {
   if (!isDamaged()) return false
@@ -17,7 +17,7 @@ fun ItemStack.repair(): Boolean {
 
 /**
  * Checks if an [ItemStack] is damaged.
- * @return True - if the item is damaged, false if it is not.
+ * @return True if the item is damaged, false if it is not.
  */
 fun ItemStack.isDamaged(): Boolean {
   if (itemMeta !is Damageable) return false

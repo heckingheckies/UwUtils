@@ -25,7 +25,7 @@ object ColorUtil {
    * Returns a colorized [Component] with all the decorations from [MiniMessage].
    *
    * @param string The [String] using [MiniMessage] formatting you want to colorize.
-   * @return [Component] - The colored version of your input.
+   * @return The colored version of your input.
    */
   fun string(string: String): Component { return serializer.deserialize(string) }
 
@@ -33,7 +33,7 @@ object ColorUtil {
    * Returns a colorized [Component] with all the decorations from & legacy formatting.
    *
    * @param string The [String] using [MiniMessage] formatting you want to colorize.
-   * @return [Component] - The colored version of your input.
+   * @return The colored version of your input.
    */
   fun stringOld(string: String): Component { return LegacyComponentSerializer.legacyAmpersand().deserialize("" + string) }
 
@@ -41,7 +41,7 @@ object ColorUtil {
    * Returns a [String] of the [Component] with all the colors intact.
    *
    * @param component The [Component] you want to serialize to [String].
-   * @return [String] - The colored version of your input.
+   * @return The colored version of your input.
    */
   fun componentString(component: Component): String { return serializer.serialize(component) }
 
@@ -49,7 +49,7 @@ object ColorUtil {
    * Returns a [String] of the [Component] with all the colors stripped.
    *
    * @param component The [Component] you want to serialize to [String].
-   * @return [String] - The colored version of your input.
+   * @return The colored version of your input.
    */
   fun stripColor(component: Component): String { return PlainTextComponentSerializer.plainText().serialize(component) }
 
@@ -57,7 +57,7 @@ object ColorUtil {
    * Returns a [CharArray] from a given [Component].
    *
    * @param component The [Component] you want to serialize to [CharArray].
-   * @return [CharArray] - The [CharArray] from your input.
+   * @return The [CharArray] from your input.
    */
   fun componentToCharArray(component: Component): CharArray { return componentString(component).toCharArray() }
 
@@ -65,7 +65,7 @@ object ColorUtil {
    * Returns a [Component] from a given [CharArray].
    *
    * @param chars The [CharArray] you want to serialize to a [Component].
-   * @return [Component] - The [Component] from your input.
+   * @return The [Component] from your input.
    */
   fun charArrayToComponent(chars: CharArray): Component { return string(chars.joinToString("")) }
 
@@ -73,7 +73,7 @@ object ColorUtil {
    * Extracts an [Int] from a given [Component].
    *
    * @param component The [Component] you want to get the [Int] from.
-   * @return [Int] - The [Int] inside of the [Component], or null if there is no [Int].
+   * @return The [Int] inside of the [Component], or `null` if there is no [Int].
    */
   fun extractNumberFromComponent(component: Component): Int? {
     val strippedComponent: String = stripColor(component)

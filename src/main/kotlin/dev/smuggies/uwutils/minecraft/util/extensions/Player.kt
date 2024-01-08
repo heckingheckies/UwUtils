@@ -5,7 +5,7 @@ import org.bukkit.entity.Player
 
 /**
  * Sends a colored message to the [Player].
- * @param message The message to send.
+ * @param message The [message] to send.
  */
 fun Player.sendMiniMessage(message: String) = sendMessage(string(message))
 
