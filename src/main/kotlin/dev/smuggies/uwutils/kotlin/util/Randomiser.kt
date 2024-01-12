@@ -13,7 +13,7 @@ class Randomiser<T: Any>(private val list: MutableList<T>) {
    * A random [Sequence] of all values from the [MutableList].
    */
   private val randomSequence = generateSequence {
-    list.shuffled().firstOrNull()?.also { list.remove(it) }
+    list.shuffled().firstOrNull().also { list.remove(it) }
   }
 
   /**

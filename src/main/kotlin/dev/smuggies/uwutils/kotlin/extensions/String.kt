@@ -29,7 +29,16 @@ val smallTextMap = mapOf(
   'W' to 'ᴡ',
   'X' to 'x',
   'Y' to 'ʏ',
-  'Z' to 'ᴢ'
+  'Z' to 'ᴢ',
+  '1' to '₁',
+  '2' to '₂',
+  '3' to '₃',
+  '4' to '₄',
+  '5' to '₅',
+  '6' to '₆',
+  '7' to '₇',
+  '8' to '₈',
+  '9' to '₉'
 )
 
 /**

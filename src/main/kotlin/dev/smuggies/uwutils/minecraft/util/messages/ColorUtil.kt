@@ -72,6 +72,8 @@ object ColorUtil {
   /**
    * Extracts an [Int] from a given [Component].
    *
+   * Kind of an unnecessary function, but why not~
+   *
    * @param component The [Component] you want to get the [Int] from.
    * @return The [Int] inside of the [Component], or `null` if there is no [Int].
    */
