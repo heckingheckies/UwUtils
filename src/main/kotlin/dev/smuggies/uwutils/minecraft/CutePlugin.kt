@@ -1,5 +1,6 @@
 package dev.smuggies.uwutils.minecraft
 
+import com.github.shynixn.mccoroutine.bukkit.SuspendingJavaPlugin
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
@@ -16,11 +17,11 @@ val instance: CutePlugin
   get() = plugin
 
 /**
- * An objectively better and cuter version of [JavaPlugin] :3
+ * An objectively better and cuter version of [SuspendingJavaPlugin] :3
  *
  * Automatically adds an [instance] that can be used in other projects.
  */
-abstract class CutePlugin : JavaPlugin() {
+abstract class CutePlugin : SuspendingJavaPlugin() {
 
   /**
    * This function overrides [onEnable] so we can access the [instance].
@@ -33,18 +34,18 @@ abstract class CutePlugin : JavaPlugin() {
   open fun onPluginDisable() {}
 
   /**
-   * Overrides the [onLoad] function.
+   * Overrides the [onEnableAsync] function for suspension.
    *
    * This function is called when the plugin is loaded.
    * It sets the [plugin] variable to [CutePlugin] and calls the [onPluginEnable] function.
    */
-  final override fun onLoad() {
+  final override suspend fun onEnableAsync() {
     plugin = this
     onPluginEnable()
   }
 
   /**
-   * Overrides the [onDisable] function.
+   * Overrides the [onDisableAsync] function for suspension.
    *
    * This function is called when the plugin is disabled.
    * it simply calls the [onPluginDisable] method. The reason for this is to allow
@@ -53,5 +54,5 @@ abstract class CutePlugin : JavaPlugin() {
    *
    * Personally, I use the `PluginDisableEvent` instead, but this is here either way.
    */
-  final override fun onDisable() { onPluginDisable() }
+  final override suspend fun onDisableAsync() { onPluginDisable() }
 }

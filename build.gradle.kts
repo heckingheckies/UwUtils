@@ -22,6 +22,8 @@ repositories {
 dependencies {
   compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("com.github.shynixn.mccoroutine:mccoroutine-bukkit-api:2.14.0")
+  implementation("com.github.shynixn.mccoroutine:mccoroutine-bukkit-core:2.14.0")
 }
 
 val targetJavaVersion = 17
