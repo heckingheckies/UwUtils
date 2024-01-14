@@ -26,12 +26,12 @@ abstract class CutePlugin : SuspendingJavaPlugin() {
   /**
    * This function overrides [onEnable] so we can access the [instance].
    */
-  open fun onPluginEnable() {}
+  open suspend fun onPluginEnable() {}
 
   /**
    * This function overrides [onDisable] so we can access the [instance].
    */
-  open fun onPluginDisable() {}
+  open suspend fun onPluginDisable() {}
 
   /**
    * Overrides the [onEnableAsync] function for suspension.
@@ -39,7 +39,7 @@ abstract class CutePlugin : SuspendingJavaPlugin() {
    * This function is called when the plugin is loaded.
    * It sets the [plugin] variable to [CutePlugin] and calls the [onPluginEnable] function.
    */
-  final override suspend fun onEnableAsync() {
+  final override suspend fun onLoadAsync() {
     plugin = this
     onPluginEnable()
   }
