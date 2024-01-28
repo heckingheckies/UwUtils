@@ -10,7 +10,7 @@ lateinit var plugin: CutePlugin
 /**
  * The [instance] of your very cute [plugin].
  *
- * You can use this [instance] in other projects, without having to make a new [instance] in them.
+ * You can use this [instance] in other projects, without having to initialize a new [instance] every time.
  */
 val instance: CutePlugin
   get() = plugin
@@ -18,7 +18,7 @@ val instance: CutePlugin
 /**
  * An objectively better and cuter version of [JavaPlugin] :3
  *
- * Automatically adds an [instance] that can be used in other projects.
+ * Automatically initializes an [instance] that can be used in other projects.
  */
 abstract class CutePlugin : JavaPlugin() {
 
@@ -53,5 +53,5 @@ abstract class CutePlugin : JavaPlugin() {
    *
    * Personally, I use the `PluginDisableEvent` instead, but this is here either way.
    */
-  final override fun onDisable() { onPluginDisable() }
+  final override fun onDisable() = onPluginDisable()
 }

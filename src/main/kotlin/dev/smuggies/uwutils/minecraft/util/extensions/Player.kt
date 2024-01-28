@@ -11,3 +11,5 @@ fun Player.clearInventory() = inventory.clear()
  * Kills the [Player].
  */
 fun Player.kill() = damage(Int.MAX_VALUE.toDouble())
+
+fun Player.removeActivePotionEffects() = activePotionEffects.forEach { removePotionEffect(it.type) }
