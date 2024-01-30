@@ -30,6 +30,14 @@ object ColorUtil {
   fun string(string: String): Component = serializer.deserialize(string)
 
   /**
+   * Returns a colorized [Component] with all the decorations from [MiniMessage] while removing the automatic italic text for all items.
+   *
+   * @param string The [String] using [MiniMessage] formatting you want to colorize.
+   * @return The colored version of your input.
+   */
+  fun nonItalicString(string: String): Component = serializer.deserialize("<!i>$string")
+
+  /**
    * Returns a colorized [Component] with all the decorations from & legacy formatting.
    *
    * @param string The [String] using [MiniMessage] formatting you want to colorize.
