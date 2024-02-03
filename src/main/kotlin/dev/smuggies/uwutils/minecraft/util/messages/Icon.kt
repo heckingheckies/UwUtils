@@ -18,6 +18,7 @@ object Icon {
 
   // Misc
   const val MISC = "🎗"
+  const val SKULL = "☠"
   const val GEM = "\uD83D\uDC8E"
   const val HEART = "❤"
   const val JOIN = "\uD83D\uDDA4"
@@ -29,4 +30,7 @@ object Icon {
   const val COMET = "☄"
   const val STAR = "⭐"
   const val STARS = "✨"
+  const val PRESTIGE = "⚜"
+  const val SOUL = "\uD83C\uDF00"
+  const val HAMSA = "\uD83E\uDEAC"
 }
