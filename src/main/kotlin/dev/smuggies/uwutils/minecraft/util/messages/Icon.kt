@@ -33,4 +33,9 @@ object Icon {
   const val PRESTIGE = "⚜"
   const val SOUL = "\uD83C\uDF00"
   const val HAMSA = "\uD83E\uDEAC"
+
+  // Discord
+  const val DEFAULT_SKULL = "\uD83D\uDC80"
+  const val DEFAULT_DAGGER = "\uD83D\uDDE1\uFE0F"
+  const val DEFAULT_PRESTIGE = "⚜\uFE0F"
 }
