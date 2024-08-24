@@ -20,32 +20,26 @@ repositories {
 }
 
 dependencies {
-  compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+  compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 21
 
 java {
   val javaVersion = JavaVersion.toVersion(targetJavaVersion)
-  if (JavaVersion.current() < javaVersion) {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
-  }
+  if (JavaVersion.current() < javaVersion) toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
 }
 
 tasks.withType<JavaCompile> {
-  if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) {
-    options.release.set(targetJavaVersion)
-  }
+  if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) options.release.set(targetJavaVersion)
 }
 
 tasks.named<ProcessResources>("processResources") {
   val props = mapOf("version" to version)
   inputs.properties(props)
   filteringCharset = "UTF-8"
-  filesMatching("plugin.yml") {
-    expand(props)
-  }
+  filesMatching("plugin.yml") { expand(props) }
 }
 
 publishing {
@@ -59,6 +53,4 @@ publishing {
   }
 }
 
-kotlin {
-  jvmToolchain(17)
-}
+kotlin { jvmToolchain(21) }
