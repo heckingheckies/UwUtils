@@ -32,6 +32,7 @@ object Icon {
   const val STARS = "✨"
   const val PRESTIGE = "⚜"
   const val SOUL = "\uD83C\uDF00"
+  const val BLOCK = "\uD83E\uDDCA"
   const val HAMSA = "\uD83E\uDEAC"
 
   // Discord
