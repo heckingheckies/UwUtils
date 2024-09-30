@@ -82,13 +82,21 @@ data class Region(
 
   /**
    * Checks if a [Location] is in the [Region].
+   *
+   * @param location The [Location] you want to check.
+   *
+   * @return If the [Location] is in the [Region].
    */
-  fun Location.isIn(): Boolean = world == world && blockX in xRange && blockY in yRange && blockZ in zRange
+  fun isIn(location: Location): Boolean = location.world == world && location.blockX in xRange && location.blockY in yRange && location.blockZ in zRange
 
   /**
    * Checks if a [Player] is in the [Region].
+   *
+   * @param player The [Player] you want to check.
+   *
+   * @return If the [Player] is in the [Region].
    */
-  fun Player.isIn(): Boolean = location.isIn()
+  fun isIn(player: Player): Boolean = isIn(player.location)
 
   /**
    * Checks if a [Location] is in the [Region] with a [margin].
