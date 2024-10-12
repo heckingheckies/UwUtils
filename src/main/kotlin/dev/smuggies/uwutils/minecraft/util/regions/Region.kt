@@ -120,4 +120,15 @@ data class Region(
     val z = nextInt(zRange.first, zRange.last + 1)
     return Location(world, x.toDouble(), y.toDouble(), z.toDouble())
   }
+
+  /**
+   * Gets a random [Location] within the [Region] while keeping the [yRange] on the ground.
+   *
+   * @return A random [Location] within the [Region].
+   */
+  fun randomGroundedLocation(): Location {
+    val x = nextInt(xRange.first, xRange.last + 1)
+    val z = nextInt(zRange.first, zRange.last + 1)
+    return Location(world, x.toDouble(), yRange.first.toDouble(), z.toDouble())
+  }
 }
