@@ -6,6 +6,7 @@ import org.bukkit.block.Block
 import org.bukkit.entity.Player
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.random.Random.Default.nextInt
 
 /**
  * A data class representing a [Region] in the [World].
@@ -107,4 +108,16 @@ data class Region(
    * @return If the location is in the region with the margin.
    */
   fun isInWithMargin(location: Location, margin: Double): Boolean = location.world == world && location.x in (xRange.first - margin)..(xRange.last + margin) && location.y in (yRange.first - margin)..(yRange.last + margin) && location.z in (zRange.first - margin)..(zRange.last + margin)
+
+  /**
+   * Gets a random [Location] within the [Region].
+   *
+   * @return A random [Location] within the [Region].
+   */
+  fun randomLocation(): Location {
+    val x = nextInt(xRange.first, xRange.last + 1)
+    val y = nextInt(yRange.first, yRange.last + 1)
+    val z = nextInt(zRange.first, zRange.last + 1)
+    return Location(world, x.toDouble(), y.toDouble(), z.toDouble())
+  }
 }
