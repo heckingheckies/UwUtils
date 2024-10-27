@@ -1,10 +1,10 @@
-package dev.smuggies.uwutils.minecraft.util.extensions
+package dev.smuggies.uwutils.minecraft.utils.extensions
 
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.Damageable
 
 /**
- * Repairs an [ItemStack] if it is damaged.
+ * Repairs an [ItemStack] if it [isDamaged].
  * @return True if the item was repaired, false if it was not damaged.
  */
 fun ItemStack.repair(): Boolean {

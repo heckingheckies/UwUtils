@@ -1,16 +1,16 @@
 package dev.smuggies.uwutils.kotlin.util
 
 /**
- * A class for randomizing values in a [MutableList].
+ * Randomizes values in a [MutableList].
  *
- * @property list the [MutableList] of values to be randomised.
- * @return The instance of this [Randomiser].
+ * @property list the [MutableList] of values to be randomized.
+ * @return The instance of this [Randomizer].
  */
 @Suppress("unused")
-class Randomiser<T: Any>(private val list: MutableList<T>) {
+class Randomizer<T: Any>(private val list: MutableList<T>) {
 
   /**
-   * A random [Sequence] of all values from the [MutableList].
+   * Generates a random [Sequence] of all values from the [MutableList].
    */
   private val randomSequence = generateSequence {
     list.shuffled().firstOrNull().also { list.remove(it) }

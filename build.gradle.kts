@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
   implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
+  api("com.github.ajalt.colormath:colormath:3.6.0")
   compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
 }
 
@@ -25,9 +26,7 @@ java {
   if (JavaVersion.current() < javaVersion) toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
 }
 
-tasks.withType<JavaCompile> {
-  if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) options.release.set(targetJavaVersion)
-}
+tasks.withType<JavaCompile> { if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) options.release.set(targetJavaVersion) }
 
 tasks.named<ProcessResources>("processResources") {
   val props = mapOf("version" to version)

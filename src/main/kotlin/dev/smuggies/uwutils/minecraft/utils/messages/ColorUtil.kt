@@ -1,4 +1,4 @@
-package dev.smuggies.uwutils.minecraft.util.messages
+package dev.smuggies.uwutils.minecraft.utils.messages
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -9,7 +9,8 @@ import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 /**
  * A utility class for coloring anything using [MiniMessage].
  *
- * Since the use of [Component]'s is recommended within the Minecraft development sphere, this class is designed to make my life easier.
+ * Since the use of [Component]'s is recommended within the Minecraft development sphere,
+ * this util is designed to make my life easier.
  */
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 object ColorUtil {
@@ -38,7 +39,7 @@ object ColorUtil {
   fun nonItalicString(string: String): Component = serializer.deserialize("<!i>$string")
 
   /**
-   * Returns a colorized [Component] with all the decorations from & legacy formatting.
+   * Returns a colorized [Component] with all the decorations from [& legacy formatting](https://minecraft.fandom.com/wiki/Formatting_codes).
    *
    * @param string The [String] using [MiniMessage] formatting you want to colorize.
    * @return The colored version of your input.

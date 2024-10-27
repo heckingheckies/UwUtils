@@ -1,4 +1,4 @@
-package dev.smuggies.uwutils.minecraft.util.extensions
+package dev.smuggies.uwutils.minecraft.utils.extensions
 
 import org.bukkit.potion.PotionEffect
 
@@ -7,8 +7,8 @@ import org.bukkit.potion.PotionEffect
  * @return True if the effect is harmful, false if it is not.
  */
 fun PotionEffect.isHarmful(): Boolean {
-  return when (type.name.uppercase()) {
-    "BLINDNESS", "CONFUSION", "HARM", "HUNGER", "POISON", "SLOW", "SLOW_DIGGING", "WEAKNESS", "WITHER" -> true
+  return when (type.category.name) {
+    "HARMFUL" -> true
     else -> false
   }
 }

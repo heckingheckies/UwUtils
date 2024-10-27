@@ -10,7 +10,7 @@ lateinit var plugin: CutePlugin
 /**
  * The [instance] of your very cute [plugin].
  *
- * You can use this [instance] in other projects, without having to initialize a new [instance] every time.
+ * You can use this [instance] anywhere, without having to initialize a new [instance].
  */
 val instance: CutePlugin
   get() = plugin
@@ -18,25 +18,26 @@ val instance: CutePlugin
 /**
  * An objectively better and cuter version of [JavaPlugin] :3
  *
- * Automatically initializes an [instance] that can be used in other projects.
+ * Automatically initializes an [instance] that can be used anywhere
+ * without having to initialize it in your own project.
  */
 abstract class CutePlugin : JavaPlugin() {
 
   /**
-   * This function overrides [onEnable] so we can access the [instance].
+   * Overrides [onEnable] so the [instance] can be accessed.
    */
   open fun onPluginEnable() {}
 
   /**
-   * This function overrides [onDisable] so we can access the [instance].
+   * Overrides [onDisable] so the [instance] can be accessed.
    */
   open fun onPluginDisable() {}
 
   /**
    * Overrides the [onEnable] function.
    *
-   * This function is called when the plugin is loaded.
-   * It sets the [plugin] variable to [CutePlugin] and calls the [onPluginEnable] function.
+   * It is called when the [plugin] is loaded.
+   * Sets the [plugin] variable to [CutePlugin] and calls the [onPluginEnable] function.
    */
   final override fun onLoad() {
     plugin = this
@@ -46,9 +47,10 @@ abstract class CutePlugin : JavaPlugin() {
   /**
    * Overrides the [onDisable] function.
    *
-   * This function is called when the plugin is disabled.
-   * it simply calls the [onPluginDisable] method. The reason for this is to allow
-   * subclasses to override this method to perform additional actions when the plugin
+   * It is called when the [plugin] is disabled.
+   * Simply calls the [onPluginDisable] function.
+   * The reason for this is to allow
+   * subclasses to override this function to perform additional actions when the [plugin]
    * is disabled.
    *
    * Personally, I use the `PluginDisableEvent` instead, but this is here either way.
