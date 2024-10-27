@@ -1,5 +1,6 @@
 package dev.smuggies.uwutils.minecraft.utils.messages
 
+import dev.smuggies.uwutils.kotlin.colors.ColorNameBuilder
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
@@ -20,6 +21,14 @@ object ColorUtil {
    */
   private val serializer = MiniMessage.builder()
     .tags(TagResolver.standard())
+    .build()
+
+  /**
+   * The [colorNames] used to transform `hex`, `RGB` or `LAB` colors into names.
+   * Uses the [CIELAB color space](https://en.wikipedia.org/wiki/CIELAB_color_space).
+   */
+  val colorNames = ColorNameBuilder()
+    .loadDefaults()
     .build()
 
   /**
