@@ -20,33 +20,33 @@ data class Region(
   /**
    * The first corner of the [Region].
    */
-  private val point1: Location,
+  val point1: Location,
 
   /**
    * The second corner of the [Region].
    */
-  private val point2: Location
+  val point2: Location
 ) {
 
   /**
    * The x range of the [Region].
    */
-  private val xRange: IntRange = min(point1.blockX, point2.blockX)..max(point1.blockX, point2.blockX)
+  val xRange: IntRange = min(point1.blockX, point2.blockX)..max(point1.blockX, point2.blockX)
 
   /**
    * The y range of the [Region].
    */
-  private val yRange: IntRange = min(point1.blockY, point2.blockY)..max(point1.blockY, point2.blockY)
+  val yRange: IntRange = min(point1.blockY, point2.blockY)..max(point1.blockY, point2.blockY)
 
   /**
    * The z range of the [Region].
    */
-  private val zRange: IntRange = min(point1.blockZ, point2.blockZ)..max(point1.blockZ, point2.blockZ)
+  val zRange: IntRange = min(point1.blockZ, point2.blockZ)..max(point1.blockZ, point2.blockZ)
 
   /**
    * The [World] of the [Region].
    */
-  private val world: World = point1.world
+  val world: World = point1.world
 
   /**
    * Iterates over the [Block]'s in the [Region].
