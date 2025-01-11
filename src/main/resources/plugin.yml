@@ -1,4 +1,0 @@
-name: "UwUtils"
-version: "1.0"
-main: "dev.smuggies.uwutils.minecraft.CutePlugin"
-api-version: "1.21"
