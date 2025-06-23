@@ -15,6 +15,7 @@ fun PlayerInventory.clearOffhand() = setItemInOffHand(null)
 /**
  * Clears the complete [PlayerInventory], including armor and offhand.
  */
+@Suppress("unused")
 fun PlayerInventory.clearAll() {
   clear()
   clearOffhand()

@@ -1,7 +1,7 @@
 plugins {
   kotlin("jvm") version "2.0.20"
   id("maven-publish")
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.12"
+  id("io.papermc.paperweight.userdev") version "2.0.0-beta.17"
   id("net.minecrell.plugin-yml.paper") version "0.6.0"
 }
 

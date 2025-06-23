@@ -56,6 +56,14 @@ object ColorUtil {
   fun stringOld(string: String): Component = LegacyComponentSerializer.legacyAmpersand().deserialize("" + string)
 
   /**
+   * Returns a colorized [String] with all the decorations from [MiniMessage].
+   *
+   * @param string The [Component] using [MiniMessage] formatting you want turn into a [String].
+   * @return The [String] version of your input.
+   */
+  fun componentLegacy(component: Component): String = LegacyComponentSerializer.legacySection().serialize(component)
+
+  /**
    * Returns a [String] of the [Component] with all the colors intact.
    *
    * @param component The [Component] you want to serialize to [String].

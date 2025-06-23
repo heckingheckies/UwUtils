@@ -6,6 +6,7 @@ import org.bukkit.potion.PotionEffect
  * Checks if a [PotionEffect] is harmful.
  * @return True if the effect is harmful, false if it is not.
  */
+@Suppress("unused")
 fun PotionEffect.isHarmful(): Boolean {
   return when (type.category.name) {
     "HARMFUL" -> true

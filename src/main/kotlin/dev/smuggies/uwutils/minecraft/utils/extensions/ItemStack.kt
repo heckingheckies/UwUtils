@@ -7,6 +7,7 @@ import org.bukkit.inventory.meta.Damageable
  * Repairs an [ItemStack] if it [isDamaged].
  * @return True if the item was repaired, false if it was not damaged.
  */
+@Suppress("unused")
 fun ItemStack.repair(): Boolean {
   if (!isDamaged()) return false
   val meta = itemMeta as Damageable
