@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-  paperweight.paperDevBundle("1.21.5-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.21.7-R0.1-SNAPSHOT")
   implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
   api("com.github.ajalt.colormath:colormath:3.6.0")
 }
