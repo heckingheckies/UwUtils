@@ -1,7 +1,7 @@
 plugins {
   kotlin("jvm") version "2.0.20"
   id("maven-publish")
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.17"
+  id("io.papermc.paperweight.userdev") version "2.0.0-beta.19"
   id("net.minecrell.plugin-yml.paper") version "0.6.0"
 }
 
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-  paperweight.paperDevBundle("1.21.7-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.21.10-R0.1-SNAPSHOT")
   implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
   api("com.github.ajalt.colormath:colormath:3.6.0")
 }
@@ -40,7 +40,7 @@ tasks.named<ProcessResources>("processResources") {
 paper {
   name = "UwUtils"
   version = "1.0"
-  authors = listOf("Meowsum")
+  authors = listOf("heckingheckies")
   main = "dev.smuggies.uwutils.minecraft.CutePlugin"
   apiVersion = "1.21"
 }

@@ -5,7 +5,7 @@ import dev.smuggies.uwutils.kotlin.extensions.replacePlaceholders
 import dev.smuggies.uwutils.kotlin.util.Randomizer
 
 /**
- * List of possible endings for UwUified text.
+ * List of possible endings for UwUified text ;3
  */
 private val endings = mutableListOf(
   "uwu *nuzzles you*", "*kisses you*", "*cuddles you*", "*huggles*", "*blushes*",
@@ -19,7 +19,7 @@ private val endings = mutableListOf(
 )
 
 /**
- * A [Map] of all possible characters and their replacements.
+ * A [Map] of all possible characters and their replacements ;3
  */
 private val replacements = mapOf(
   "\\. " to "~ ",
@@ -51,12 +51,12 @@ private val replacements = mapOf(
 )
 
 /**
- * A [Randomizer] that selects a random ending from the list of [endings].
+ * A [Randomizer] that selects a random ending from the list of [endings] ;3
  */
 private val randomEnding = Randomizer(endings)
 
 /**
- * UwUifies the given text by applying replacements, adding stutters, and appending a random ending.
+ * UwUifies the given text by applying replacements, adding stutters, and appending a random ending ;3
  *
  * @param text The input text to UwUify.
  * @return The UwUified version of the input text.
@@ -72,7 +72,7 @@ fun uwuify(text: String): String {
 }
 
 /**
- * Adds stutters to the text by randomly stuttering words.
+ * Adds stutters to the text by randomly stuttering words ;3
  *
  * @param text The input text to add stutters to.
  * @return The text with stutters added.
