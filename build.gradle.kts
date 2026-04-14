@@ -1,8 +1,8 @@
 plugins {
   kotlin("jvm") version "2.0.20"
   id("maven-publish")
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.19"
-  id("net.minecrell.plugin-yml.paper") version "0.6.0"
+  id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
+  id("de.eldoria.plugin-yml.paper") version "0.9.0"
 }
 
 group = "dev.smuggies"
@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-  paperweight.paperDevBundle("1.21.10-R0.1-SNAPSHOT")
-  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20")
+  paperweight.paperDevBundle("1.21.11-R0.1-SNAPSHOT")
+  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.0-Beta1")
   api("com.github.ajalt.colormath:colormath:3.6.0")
 }
 
