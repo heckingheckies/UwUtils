@@ -29,12 +29,6 @@ fun Player.hasFullInventory(): Boolean = inventory.firstEmpty() == -1
 fun Player.hasFullEnderChest(): Boolean = enderChest.firstEmpty() == -1
 
 /**
- * Kills the [Player].
- */
-@Suppress("unused")
-fun Player.kill() = damage(Int.MAX_VALUE.toDouble())
-
-/**
  * Removes all active `PotionEffect`'s from the [Player].
  */
 @Suppress("unused")

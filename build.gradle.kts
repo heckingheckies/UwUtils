@@ -1,7 +1,7 @@
 plugins {
-  kotlin("jvm") version "2.0.20"
+  kotlin("jvm") version "2.4.10"
   id("maven-publish")
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.21"
+  id("io.papermc.paperweight.userdev") version "2.0.0-beta.22"
   id("de.eldoria.plugin-yml.paper") version "0.9.0"
 }
 
@@ -16,19 +16,15 @@ repositories {
 }
 
 dependencies {
-  paperweight.paperDevBundle("1.21.11-R0.1-SNAPSHOT")
-  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.0-Beta1")
+  paperweight.paperDevBundle("26.2.build.+")
   api("com.github.ajalt.colormath:colormath:3.6.0")
 }
 
-val targetJavaVersion = 21
+val targetJavaVersion = 25
 
-java {
-  val javaVersion = JavaVersion.toVersion(targetJavaVersion)
-  if (JavaVersion.current() < javaVersion) toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
-}
+java { toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion)) }
 
-tasks.withType<JavaCompile> { if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible) options.release.set(targetJavaVersion) }
+tasks.withType<JavaCompile> { options.release.set(targetJavaVersion) }
 
 tasks.named<ProcessResources>("processResources") {
   val props = mapOf("version" to version)
@@ -42,7 +38,7 @@ paper {
   version = "1.0"
   authors = listOf("heckingheckies")
   main = "dev.smuggies.uwutils.minecraft.CutePlugin"
-  apiVersion = "1.21"
+  apiVersion = "26.2"
 }
 
 publishing {
@@ -56,4 +52,4 @@ publishing {
   }
 }
 
-kotlin { jvmToolchain(21) }
+kotlin { jvmToolchain(targetJavaVersion) }
